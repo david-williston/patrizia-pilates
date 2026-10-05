@@ -1,7 +1,7 @@
 {{- with site.Params -}}
 <ul class="contact-list">
   {{- with .whatsapp }}
-  <li><strong>WhatsApp:</strong> <a href="https://wa.me/{{ . }}">+{{ . }}</a></li>
+  <li><strong>WhatsApp:</strong> <a href="https://wa.me/{{ . }}">{{ site.Params.whatsappDisplay | default (print "+" .) }}</a></li>
   {{- end }}
   {{- with .email }}
   <li><strong>{{ i18n "contact_email" }}:</strong> <a href="mailto:{{ . }}">{{ . }}</a></li>

@@ -41,9 +41,10 @@ buildFuture = false
   comments = false
 
   # Contact details — used by the contact pages via shortcode
-  # TODO: replace with Mexican WhatsApp number and studio address
+  # TODO: add studio address and Instagram
   email = "patrizia.maerki@me.com"
-  whatsapp = "52XXXXXXXXXX" # international format, digits only
+  whatsapp = "529541453286"           # for the wa.me link: digits only, with country code
+  whatsappDisplay = "+52 954 145 3286" # how the number is shown on the page
   instagram = ""            # e.g. "pilates.puertoescondido"
   location = "Puerto Escondido, Oaxaca, México"
 
@@ -53,9 +54,9 @@ buildFuture = false
   [[params.socialIcons]]
     name = "email"
     url = "mailto:patrizia.maerki@me.com"
-  # [[params.socialIcons]]
-  #   name = "whatsapp"
-  #   url = "https://wa.me/52XXXXXXXXXX"
+  [[params.socialIcons]]
+    name = "whatsapp"
+    url = "https://wa.me/529541453286"
   # [[params.socialIcons]]
   #   name = "instagram"
   #   url = "https://instagram.com/USERNAME"

@@ -1,0 +1,8 @@
+<ul class="photo-credits">
+{{- range site.Data.photo_credits }}
+  <li>
+    <a href="{{ .url }}">{{ .title }}</a> — {{ .artist }}
+    ({{ with .licenseUrl }}<a href="{{ . }}">{{ end }}{{ .license }}{{ with .licenseUrl }}</a>{{ end }})
+  </li>
+{{- end }}
+</ul>

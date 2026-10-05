@@ -1,0 +1,16 @@
+{{- with site.Params -}}
+<ul class="contact-list">
+  {{- with .whatsapp }}
+  <li><strong>WhatsApp:</strong> <a href="https://wa.me/{{ . }}">+{{ . }}</a></li>
+  {{- end }}
+  {{- with .email }}
+  <li><strong>{{ i18n "contact_email" }}:</strong> <a href="mailto:{{ . }}">{{ . }}</a></li>
+  {{- end }}
+  {{- with .instagram }}
+  <li><strong>Instagram:</strong> <a href="https://instagram.com/{{ . }}">@{{ . }}</a></li>
+  {{- end }}
+  {{- with .location }}
+  <li><strong>{{ i18n "contact_location" }}:</strong> {{ . }}</li>
+  {{- end }}
+</ul>
+{{- end -}}

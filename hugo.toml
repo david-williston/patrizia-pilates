@@ -1,0 +1,160 @@
+baseURL = "https://example.org/" # TODO: set final domain
+title = "Patrizia Märki Pilates"
+theme = "PaperMod"
+
+defaultContentLanguage = "es"
+defaultContentLanguageInSubdir = false
+
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 10
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# ---------------------------------------------------------------------------
+# Shared params (apply to every language unless overridden below)
+# ---------------------------------------------------------------------------
+[params]
+  env = "production"
+  author = "Patrizia Märki"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = false
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  disableSpecial1stPost = true
+  hideFooter = false
+  hidemeta = true
+  comments = false
+
+  # Contact details — used by the contact pages via shortcode
+  # TODO: replace with Mexican WhatsApp number and studio address
+  email = "patrizia.maerki@me.com"
+  whatsapp = "52XXXXXXXXXX" # international format, digits only
+  instagram = ""            # e.g. "pilates.puertoescondido"
+  location = "Puerto Escondido, Oaxaca, México"
+
+  [params.assets]
+    # favicon = "/favicon.ico" # TODO: add favicon files to static/
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:patrizia.maerki@me.com"
+  # [[params.socialIcons]]
+  #   name = "whatsapp"
+  #   url = "https://wa.me/52XXXXXXXXXX"
+  # [[params.socialIcons]]
+  #   name = "instagram"
+  #   url = "https://instagram.com/USERNAME"
+
+# ---------------------------------------------------------------------------
+# Languages
+# ---------------------------------------------------------------------------
+[languages]
+
+  [languages.es]
+    label = "Español"
+    locale = "es-MX"
+    contentDir = "content/es"
+    weight = 1
+    title = "Patrizia Märki Pilates"
+    copyright = "© Patrizia Märki · [Créditos de fotos](/creditos)"
+
+    [languages.es.params]
+      description = "Pilates clásico en Puerto Escondido con Patrizia Märki: sesiones privadas, semiprivadas y clases de mat."
+
+      [languages.es.params.homeInfoParams]
+        Title = "Pilates clásico en Puerto Escondido"
+        Content = """
+«El cambio ocurre a través del movimiento, y el movimiento sana.» — J. Pilates
+
+El método Pilates es versátil, y lo adaptamos a tus necesidades. Sesiones privadas, semiprivadas y clases de mat con Patrizia Märki, instructora certificada con más de 30 años de experiencia en movimiento.
+"""
+        [languages.es.params.homeInfoParams.Cta]
+          text = "Reserva tu consulta gratuita"
+          link = "/contacto"
+
+    [languages.es.menus]
+      [[languages.es.menus.main]]
+        name = "El Método"
+        pageRef = "/metodo"
+        weight = 10
+      [[languages.es.menus.main]]
+        name = "Clases"
+        pageRef = "/clases"
+        weight = 20
+      [[languages.es.menus.main]]
+        name = "El Estudio"
+        pageRef = "/estudio"
+        weight = 30
+      [[languages.es.menus.main]]
+        name = "Sobre mí"
+        pageRef = "/sobre-mi"
+        weight = 40
+      [[languages.es.menus.main]]
+        name = "Contacto"
+        pageRef = "/contacto"
+        weight = 50
+
+  [languages.en]
+    label = "English"
+    locale = "en"
+    contentDir = "content/en"
+    weight = 2
+    title = "Patrizia Märki Pilates"
+    copyright = "© Patrizia Märki · [Photo credits](/credits)"
+
+    [languages.en.params]
+      description = "Classical Pilates in Puerto Escondido with Patrizia Märki: private, semi-private and mat classes."
+
+      [languages.en.params.homeInfoParams]
+        Title = "Classical Pilates in Puerto Escondido"
+        Content = """
+“Change happens through movement, and movement heals.” — J. Pilates
+
+The Pilates method is versatile, and we adapt it to your needs. Private, semi-private and mat classes with Patrizia Märki, a certified instructor with over 30 years of experience in movement.
+"""
+        [languages.en.params.homeInfoParams.Cta]
+          text = "Book your free consultation"
+          link = "/contact"
+
+    [languages.en.menus]
+      [[languages.en.menus.main]]
+        name = "The Method"
+        pageRef = "/method"
+        weight = 10
+      [[languages.en.menus.main]]
+        name = "Classes"
+        pageRef = "/classes"
+        weight = 20
+      [[languages.en.menus.main]]
+        name = "The Studio"
+        pageRef = "/studio"
+        weight = 30
+      [[languages.en.menus.main]]
+        name = "About"
+        pageRef = "/about"
+        weight = 40
+      [[languages.en.menus.main]]
+        name = "Contact"
+        pageRef = "/contact"
+        weight = 50
+
+# Resolve markdown links to pages (e.g. "/contacto") so they work under a subpath
+[markup.goldmark.renderHooks.link]
+  useEmbedded = "fallback"
+[markup.goldmark.renderHooks.image]
+  useEmbedded = "fallback"

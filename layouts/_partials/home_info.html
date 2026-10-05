@@ -1,0 +1,45 @@
+{{- /* Overrides PaperMod's home_info: full-bleed Puerto Escondido hero with CTA */ -}}
+{{- with site.Params.homeInfoParams }}
+{{- $hero := resources.Get "images/hero.jpg" }}
+{{- $lg := $hero.Resize "1920x webp q75" }}
+{{- $sm := $hero.Resize "900x webp q75" }}
+<section class="hero" style="--hero-lg: url('{{ $lg.RelPermalink }}'); --hero-sm: url('{{ $sm.RelPermalink }}');">
+  <div class="hero-inner">
+    <p class="hero-place">Puerto Escondido · Oaxaca</p>
+    <h1>{{ .Title | markdownify }}</h1>
+    <div class="hero-content">
+      {{ .Content | $.Page.RenderString (dict "display" "block") }}
+    </div>
+    {{- with .Cta }}
+    <a class="btn" href="{{ with site.GetPage .link }}{{ .RelPermalink }}{{ end }}">{{ .text }}</a>
+    {{- end }}
+  </div>
+  <div class="hero-waves" aria-hidden="true">
+    <svg class="wave wave-back" viewBox="0 0 2880 90" preserveAspectRatio="none">
+      <path d="M0,40 C480,80 960,0 1440,40 C1920,80 2400,0 2880,40 L2880,90 L0,90 Z"/>
+    </svg>
+    <svg class="wave wave-front" viewBox="0 0 2880 90" preserveAspectRatio="none">
+      <path d="M0,45 C240,80 480,10 720,45 C960,80 1200,10 1440,45 C1680,80 1920,10 2160,45 C2400,80 2640,10 2880,45 L2880,90 L0,90 Z"/>
+    </svg>
+  </div>
+</section>
+
+<section class="home-cards">
+  {{- range site.Menus.main }}
+  {{- with .Page }}
+  <a class="home-card" href="{{ .RelPermalink }}">
+    {{- with .Params.cover.image }}
+    {{- with resources.Get . }}
+    {{- $img := .Fill "640x400 Center webp q75" }}
+    <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
+    {{- end }}
+    {{- end }}
+    <div class="home-card-body">
+      <h2>{{ .Title }}</h2>
+      {{- with .Description }}<p>{{ . }}</p>{{ end }}
+    </div>
+  </a>
+  {{- end }}
+  {{- end }}
+</section>
+{{- end -}}

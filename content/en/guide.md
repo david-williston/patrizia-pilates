@@ -1,6 +1,6 @@
 ---
 title: "Patrizia's Website Guide"
-description: "How your website is built, how to change it, and where everything lives."
+description: "How your website works, and how to change it just by talking to Claude."
 # Hidden page: not in menus, lists, search or the sitemap, and search engines are asked not to index it.
 build:
   list: never
@@ -15,187 +15,128 @@ Hola Patrizia! 👋
 
 This page is just for you. It isn't in the menu and search engines won't show it, but anyone who has the link can open it, so there is nothing secret here.
 
-You don't need to be "technical" to look after this website. If you can write an email and click "Save", you can update your website. This guide walks you through it, one small step at a time.
+Here's the best news: **you never have to edit your website yourself.** You simply tell **Claude**, an AI assistant, what you want, in your own words and in any language. Claude makes the change, checks it, and publishes it for you.
 
-> **The golden rule:** you can't permanently break anything. Every change is saved in a history, and any mistake can be undone. So go ahead and explore!
-
----
-
-## The big picture
-
-Think of your website like a **Pilates class plan**:
-
-| In Pilates… | In your website… | Its real name |
-|---|---|---|
-| Your notes for each exercise | Simple text files with your words | **Markdown** files |
-| The method that turns notes into a class | A program that turns text files into web pages | **Hugo** |
-| The studio's look and feel | The design: colours, fonts, layout | **PaperMod** theme + our custom style |
-| Your studio where everything is kept | An online folder that stores every file and every change | **GitHub** (a "repository") |
-| Opening the doors to clients | Publishing the website on the internet | **GitHub Pages** |
-
-**What happens when you make a change:**
-
-1. You edit a text file on GitHub (for example, the prices).
-2. You click **Commit changes** (this means "save").
-3. GitHub automatically runs Hugo, which rebuilds the website. This takes about 2–5 minutes.
-4. Your new website is live at **<https://david-williston.github.io/patrizia-pilates/>**.
-
-That's it. There is no server to manage and no monthly hosting bill.
+> **The golden rule:** you can't permanently break anything. Every change is saved in a history, and you can always say *"Undo my last change"*. So feel free to experiment!
 
 ---
 
-## Where everything lives
+## How it works
 
-All the files are in the repository: **<https://github.com/david-williston/patrizia-pilates>**
+Think of Claude as your **website assistant**. You're the teacher who knows what the class needs; Claude is the assistant who sets up the equipment.
 
-You will mostly use the first two rows of this table. You can ignore the rest unless you're curious.
+1. **You ask:** *"Change the price of a private session to 900 pesos."*
+2. **Claude edits** the right files, in Spanish *and* English.
+3. **Claude shows you** what it changed and asks if it's OK.
+4. **You say yes**, and Claude publishes it.
+5. **2–5 minutes later** the change is live at **<https://david-williston.github.io/patrizia-pilates/>**.
 
-| Folder or file | What's inside | How often you'll touch it |
-|---|---|---|
-| `content/es/` | The **Spanish** pages, one file per page | Often |
-| `content/en/` | The **English** pages (including this guide!) | Often |
-| `hugo.toml` | Site settings: your email, WhatsApp, the menu, the homepage text | Sometimes |
-| `assets/images/` | The photos | Sometimes |
-| `data/photo_credits.json` | Credits for the temporary stock photos | When you replace photos |
-| `assets/css/extended/theme.css` | Colours, fonts and animations | Rarely |
-| `layouts/` | Small building blocks of the design | Rarely |
-| `themes/PaperMod/` | The base design, shared by thousands of websites | Never: don't edit |
-| `.github/workflows/hugo.yml` | The instructions GitHub follows to publish the site | Never |
-
-### Which file is which page?
-
-| Page | Spanish file | English file |
-|---|---|---|
-| El Método / The Method | `content/es/metodo.md` | `content/en/method.md` |
-| Clases / Classes (with prices) | `content/es/clases.md` | `content/en/classes.md` |
-| El Estudio / The Studio | `content/es/estudio.md` | `content/en/studio.md` |
-| Sobre mí / About | `content/es/sobre-mi.md` | `content/en/about.md` |
-| Contacto / Contact | `content/es/contacto.md` | `content/en/contact.md` |
-| Créditos / Photo credits | `content/es/creditos.md` | `content/en/credits.md` |
-| **Homepage** (big sunset section) | in `hugo.toml`, under `[languages.es...homeInfoParams]` | in `hugo.toml`, under `[languages.en...homeInfoParams]` |
-
-> 💡 **Two languages = two files.** When you change something in Spanish, remember to make the same change in the English file too.
+That's it. There is no server to manage, no monthly hosting bill, and no code for you to write.
 
 ---
 
-## Before you start (one time only)
+## One-time setup (with David)
 
-1. **Create a free GitHub account** at <https://github.com/signup>.
-2. **Send your username to David** so he can give you permission to edit the website.
-3. **Accept the invitation** you'll get by email.
+David will help you with this once, and then you're ready:
 
-That's all the setup you need. You can do everything in this guide from your web browser, without installing anything.
+1. Install the **Claude app** on your computer (<https://claude.ai/download>) and sign in.
+2. Create a free **GitHub** account (<https://github.com/signup>). GitHub is where your website's files are stored. David will give your account access to the website.
+3. Together you'll open your website project in Claude's **Code** section and connect it to GitHub.
 
----
-
-## How to change text (step by step)
-
-Let's say you want to update the **prices**.
-
-1. Go to <https://github.com/david-williston/patrizia-pilates>.
-2. Click the folder **`content`**, then **`es`**, then **`clases.md`**.
-3. Click the **pencil icon ✏️** (top right of the file, "Edit this file").
-4. Change the text. For example, change `$ — MXN` to `$ 900 MXN`.
-5. Click the green **Commit changes…** button (top right).
-6. In the little window, write a short note about what you changed, like *"Update private session prices"*. Then click **Commit changes** again.
-7. Do the same in `content/en/classes.md` for the English page.
-8. Wait 2–5 minutes, then refresh your website. Done! 🎉
-
-**How to check it worked:** in the repository, click the **Actions** tab at the top.
-
-- 🟡 A yellow dot means "working on it".
-- ✅ A green tick means "published".
-- ❌ A red cross means something went wrong. See [If something goes wrong](#if-something-goes-wrong).
+After that, every time you want to change something, you just open Claude, go to your website project, and start typing.
 
 ---
 
-## Writing in Markdown (a tiny cheat sheet)
+## Your first change, step by step
 
-The page files are written in **Markdown**, a simple way of writing where a few symbols add formatting.
+Let's update the prices together.
 
-| You type | You get |
-|---|---|
-| `**bold**` | **bold** |
-| `*italic*` | *italic* |
-| `## A heading` | a section heading |
-| `- an item` | a bullet point |
-| `[my link](https://example.com)` | a [link](https://example.com) |
-| `> a quote` | a highlighted quote |
+**1. Open Claude** and go to your website project.
 
-**Tables** (like the price tables) use `|` to separate the columns:
+**2. Tell Claude what you want**, as if you were talking to a person:
 
-```
-| Sesiones privadas | Precio | Vigencia |
-|---|---|---|
-| Sesión individual | $ 900 MXN | — |
-```
+> *"On the Clases page, the private sessions should be: single session 900 pesos, 5 sessions 4,250 pesos, 10 sessions 8,000 pesos. Please update Spanish and English."*
 
-Just keep the `|` characters in the same places and change the words between them.
+**3. Claude will work on it** and explain what it changed. Sometimes it asks for your permission before doing something. That's normal: read what it says, and click **Allow** or **Yes** if it makes sense.
 
-### The part at the top of each file
+**4. Ask to see it first (optional but nice):**
 
-Every page file starts with a small block between two `---` lines. This is called **front matter**. It holds the page's settings:
+> *"Can you show me a preview before publishing?"*
 
-```
----
-title: "Clases"
-translationKey: "classes"
-description: "Sesiones privadas, semiprivadas, clases de mat y en línea."
-cover:
-  image: "images/clases.jpg"
-  alt: "Ejercicio de pie en el reformer"
----
-```
+**5. Publish:**
 
-- `title`: the big heading on the page.
-- `description`: the short sentence under the title (and on the homepage cards).
-- `translationKey`: connects the Spanish and English versions. **Don't change this.**
-- `cover`: the photo at the top of the page.
+> *"Looks good, please publish it."*
 
-You'll also see lines like `<!-- TODO: ... -->`. These are hidden notes that don't appear on the website. They mark things that still need your input.
+**6. Check it's live:** after a few minutes, open your website and refresh the page. Or ask:
+
+> *"Did my last change publish successfully?"*
+
+🎉 Done! You just updated your website.
 
 ---
 
-## Changing your contact details
+## Things you can ask Claude
 
-Open **`hugo.toml`** and look near the top for these lines:
+Copy any of these, change the details, and send. You can write in Spanish, English, Italian, German or French, whichever you like.
 
-```
-email = "patrizia.maerki@me.com"
-whatsapp = "529541453286"
-whatsappDisplay = "+52 954 145 3286"
-instagram = ""
-location = "Puerto Escondido, Oaxaca, México"
-```
+### Text and prices
 
-- `whatsapp`: only digits, starting with the country code 52 (this makes the "chat on WhatsApp" link work).
-- `whatsappDisplay`: how the number looks on the page.
-- `instagram`: your username without the @, e.g. `"pilates.puertoescondido"`.
+- *"Fill in all the prices on the Clases page. Here they are: …"*
+- *"Add a sentence to Sobre mí saying I also teach prenatal Pilates."*
+- *"Rewrite the homepage introduction to sound warmer and more welcoming."*
+- *"Cambia el horario: lunes a viernes de 7:00 a 19:00."*
+- *"Correct any spelling mistakes on the Spanish pages."*
 
-Keep the quote marks `" "` around each value.
+### Contact details
+
+- *"Add my Instagram: @pilates.puertoescondido"*
+- *"Add the studio address: [address]. Show a map if possible."*
+- *"Change my email address to …"*
+
+### Photos
+
+1. Save your photo somewhere easy to find, like your **Downloads** or **Desktop** folder.
+2. Then ask, for example:
+
+- *"Use the photo 'patrizia-reformer.jpg' from my Downloads folder as the photo on the Sobre mí page."*
+- *"Replace the big homepage photo with 'sunset.jpg' from my Desktop."*
+- *"I've replaced all the stock photos with my own. Please remove the photo credits page."*
+
+Wide (landscape) photos usually look best.
+
+### New pages and classes
+
+- *"Add a new class called 'Pilates for surfers' to the Clases page, with a short description, in both languages."*
+- *"Create a new page called Talleres / Workshops and add it to the menu."*
+- *"Add a page with a few testimonials from my clients: [paste them]."*
+
+### Look and feel
+
+- *"Make the purple a little softer."*
+- *"The animations are too fast. Can you slow them down?"*
+- *"Add a WhatsApp button that floats at the bottom of every page."*
+
+### Checking and undoing
+
+- *"Show me a preview of the site."*
+- *"What did I change last week?"*
+- *"Undo my last change."*
+- *"Is anything on the website still marked as 'to do'?"*
+
+> 💡 **Tip:** the website has things still waiting for you (prices, studio address, opening hours, your own photos). Ask *"What information is still missing from my website?"* and Claude will give you a list.
 
 ---
 
-## Replacing the photos
+## Tips for working with Claude
 
-The current photos are **temporary** stock photos. Here's how to put in your own:
-
-1. Choose a photo. Wide (landscape) photos work best. Ideally make it about 2000 pixels wide.
-2. **Rename it to the same name as the photo you're replacing**, for example `clases.jpg`:
-
-   | Photo name | Where it appears |
-   |---|---|
-   | `hero.jpg` | The big homepage background |
-   | `metodo.jpg` | El Método page |
-   | `clases.jpg` | Clases page |
-   | `estudio.jpg` | El Estudio page |
-   | `sobre-mi.jpg` | Sobre mí page (a photo of you would be perfect here!) |
-   | `contacto.jpg` | Contacto page |
-
-3. On GitHub, open the folder **`assets/images`**.
-4. Click **Add file → Upload files**, drag your photo in, and click **Commit changes**.
-5. Because it has the same name, it replaces the old one automatically.
-6. Once you've used **your own** photo, delete its entry in `data/photo_credits.json`. When all the photos are yours, you can remove the credits page completely. Ask AI or David to help with this.
+- **Be specific.** *"Change the mat class price to 250 pesos"* works better than *"fix the prices"*.
+- **One thing at a time** is easiest, especially at the start.
+- **Read Claude's summary** of what it changed before saying "publish". You are the boss! 😊
+- **Ask for a preview** whenever you're unsure.
+- **It's fine to say no.** If Claude asks to do something you don't understand, ask *"What does that mean?"* before agreeing.
+- **Both languages:** Claude knows your site is in Spanish and English and should update both. If it only does one, just remind it.
+- **Never share passwords** or bank details in the chat. Claude doesn't need them to edit your website.
+- **Claude can make mistakes.** If something looks strange on the site, tell it: *"The Clases page looks wrong now, can you check?"*
 
 ---
 
@@ -203,105 +144,60 @@ The current photos are **temporary** stock photos. Here's how to put in your own
 
 Don't worry, it happens to everyone!
 
-1. Go to the **Actions** tab and click the run with the red ❌.
-2. Click on **build** to see the error message.
-3. **Copy the error message and ask an AI assistant** (see the next section). Usually it's a small typo, such as a missing `"` or `---`.
-4. **To undo a change:** open the file, click **History** (top right), find the version that worked, and copy its text back.
-5. Or simply message David. Nothing is ever lost.
+- **Describe the problem** to Claude in your own words: *"The prices table looks broken on my phone."*
+- **If the website didn't update:** *"My last change didn't appear on the website. Can you find out why?"*
+- **To go back:** *"Undo my last change"* or *"Put the Clases page back the way it was yesterday."*
+- **Still stuck?** Message David. Nothing is ever lost, because every version is saved.
 
 ---
 
-## Using AI to learn and get help 🤖
+## Using Claude to learn new things 🤖
 
-AI assistants like **Claude** (<https://claude.ai>) are wonderful patient teachers. They never get tired of questions, and you can ask in Spanish, Italian, German, French or English, whichever feels most natural.
+Claude is also a very patient teacher. Whenever you hear a word you don't know, or you're curious how something works, just ask:
 
-### Ask it to explain new words
+> *"I'm a beginner. What is GitHub, and why is my website stored there? Explain it like you'd explain something to a Pilates student."*
 
-When you see a word you don't know, just ask:
+> *"¿Qué significa 'publicar' mi sitio web? Explícamelo de forma sencilla."*
 
-> *"I'm a beginner managing my own website. Explain what 'front matter' means in Hugo, like you're explaining to a Pilates student."*
+> *"Spiegami cos'è un dominio e se dovrei comprarne uno per il mio sito."*
 
-> *"¿Qué es un 'commit' en GitHub? Explícamelo de forma sencilla, sin palabras técnicas."*
+> *"Can you explain what you just changed, in simple words?"*
 
-> *"Spiegami cos'è il Markdown con un esempio semplice."*
+**For great answers:**
 
-### Ask it to check your changes before saving
+- **Say you're a beginner.** Claude will keep it simple and go step by step.
+- **Ask follow-up questions.** *"I didn't understand that part, can you explain it differently?"* is a perfect question.
+- **Ask for examples or comparisons.** *"Compare it to something in Pilates"* can make a new idea click.
+- **Use any language.** Ask in whichever language feels most natural to you.
 
-Copy the whole file and ask:
-
-> *"This is a page from my Hugo website. I changed the prices. Can you check I didn't break the formatting? [paste the file here]"*
-
-### Ask it to fix an error
-
-> *"My website didn't publish. This is the error from GitHub Actions. What does it mean and how do I fix it? [paste the error here]"*
-
-### Ask it to help with writing and translations
-
-> *"Here's my Spanish text for a new class. Translate it into natural, warm English for my Pilates website: [your text]"*
-
-> *"Help me write a short, friendly description of a new prenatal Pilates class, in Spanish and English."*
-
-### Tips for great answers
-
-- **Say you're a beginner.** The answers will be simpler and more step by step.
-- **Give context.** Mention "Hugo website", "GitHub" or "Markdown" so it knows exactly what you're using.
-- **Ask follow-up questions.** "I don't understand step 3, can you explain it differently?" is a perfect question.
-- **Ask for examples.** "Show me an example" often makes everything clear.
-- **Never paste passwords** or other private information into an AI chat.
-- **AI can make mistakes.** If something seems strange, ask it "Are you sure?" or check with David.
-
-### Going further: AI that edits for you
-
-There are also AI tools, such as **Claude Code** (the tool David used to build this website), that can change the files for you when you describe what you want in plain words. For example: *"Add a new class called 'Pilates for surfers' to the Clases page, in both languages."* Ask David to show you when you're ready. It's a great next step!
+You can also use Claude to help with your business more broadly: writing class descriptions, translating texts, planning a newsletter or social media posts.
 
 ---
 
-## Adding a new page
+## For the curious: how your website is built
 
-This is a bit more advanced, but completely doable:
+You don't need to know any of this, because Claude knows it all. But if you're curious:
 
-1. In `content/es/`, click **Add file → Create new file**.
-2. Name it, for example, `talleres.md` (only lowercase letters and dashes, ending in `.md`).
-3. Start it with front matter, then write your text:
-
-   ```
-   ---
-   title: "Talleres"
-   translationKey: "workshops"
-   description: "Talleres especiales de Pilates."
-   ---
-
-   Your text here...
-   ```
-
-4. Create the English version in `content/en/` (e.g. `workshops.md`) with **the same `translationKey`**.
-5. To show it in the menu, add it in `hugo.toml` under `[languages.es.menus]` and `[languages.en.menus]`. Copy an existing menu item and change the name, the page and the `weight` (a higher number places it further right).
-
-Tip: this is a great moment to ask AI to help you, step by step!
-
----
-
-## Little glossary
-
-| Word | What it means |
+| What | What it does |
 |---|---|
-| **Hugo** | The program that turns your text files into a website |
-| **PaperMod** | The base design (theme) we built on |
-| **GitHub** | The website where all your files and their history are stored |
-| **Repository (repo)** | Your project's folder on GitHub |
-| **Commit** | Saving a change, with a short note describing it |
-| **Markdown** | The simple writing format used for the pages (`.md` files) |
-| **Front matter** | The settings block between `---` lines at the top of a page |
-| **GitHub Actions** | The robot that rebuilds and publishes your site after every change |
-| **GitHub Pages** | The free service that puts your website on the internet |
-| **Theme** | The design: colours, fonts, layout |
-| **Domain** | Your website's address. Later you can buy your own, like `patriziapilates.com` |
+| **Hugo** | A program that turns simple text files into a website |
+| **PaperMod** | The base design we started from |
+| **Markdown** | The simple text format your pages are written in |
+| **GitHub** | Stores all your website's files, plus a history of every change |
+| **GitHub Pages** | Puts your website on the internet for free |
+| **CLAUDE.md** | A note in your project that explains your website to Claude, so it always knows how to help you |
+
+**Your website's files** live here: <https://github.com/david-williston/patrizia-pilates>. Feel free to look around, but you never need to change anything there by hand.
+
+### Later: your own domain
+
+Right now your address is `david-williston.github.io/patrizia-pilates`. Later you can buy your own domain, like `patriziapilates.com`. Ask Claude or David to help you set it up.
 
 ---
 
 ## Who to ask
 
-- **For quick questions:** an AI assistant like Claude.
-- **For anything bigger, or if you feel stuck:** David. He knows how everything was set up.
+- **For changes and questions:** Claude, any time.
+- **For setup, accounts, or if you feel stuck:** David.
 
 You've got this, Patrizia! Like Pilates, it's all about small, steady practice. 💜🌊

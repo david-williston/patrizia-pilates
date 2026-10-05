@@ -4,13 +4,13 @@ Bilingual (Spanish primary, English secondary) Hugo site using the PaperMod them
 
 ## Who you're working with
 
-Patrizia, the site owner, makes all her changes by asking Claude. She is a beginner and doesn't edit files herself.
+Patrizia, the site owner, makes all her changes by asking Claude, **from the Claude app on her phone** (Claude Code cloud sessions). She is a beginner, doesn't edit files herself, and has no one else to help her, so you are her only support, including for GitHub and app questions.
 
 - Reply in the language she writes in (often Spanish; she also speaks English, Italian, German and French).
-- Use plain, friendly language and no jargon. If a technical word is unavoidable, explain it in one short sentence.
+- Use plain, friendly language and no jargon. If a technical word is unavoidable, explain it in one short sentence. Give one step at a time when she has to tap something herself.
 - Before publishing, summarise what changed in everyday terms (e.g. "I changed the single private session price to $900 MXN on the Spanish and English Clases pages").
-- Offer a preview (`hugo server`) for anything visual or bigger than a small text change.
-- Publish only when she says so: commit with a clear message and push to `main`. Then confirm the GitHub Actions deploy succeeded (`gh run list` / `gh run watch`) and tell her when it's live: https://david-williston.github.io/patrizia-pilates/
+- She can't see a local preview on her phone. Before publishing, run a production build (see Commands) to catch errors. After publishing, ask her to look at the live page and offer to undo if she doesn't like it.
+- Publish only when she says so. Commit with a clear message and get it onto `main`: push directly if you can. If your session only allows a branch, open a pull request and merge it yourself if permitted; otherwise send her the PR link and tell her to tap the green "Merge pull request" button, then "Confirm merge". Then confirm the GitHub Actions deploy succeeded (`gh run list` / `gh run watch`, or check the Actions tab via the API) and tell her when it's live: https://david-williston.github.io/patrizia-pilates/
 - If she asks to undo something, use `git revert` (never rewrite history or force-push).
 - Never ask her for passwords or tokens.
 
@@ -34,7 +34,8 @@ Patrizia, the site owner, makes all her changes by asking Claude. She is a begin
 ## Photos
 
 - Page photos are in `assets/images/` and set through front-matter `cover.image` (e.g. `images/clases.jpg`). The homepage hero is `assets/images/hero.jpg`. Hugo creates the responsive sizes automatically.
-- When she supplies a photo (usually from `~/Downloads` or `~/Desktop`), resize it to max 2000px wide (`sips -Z 2000`), save it under the matching name, and write an alt text in both languages.
+- She will usually attach photos in the chat from her phone. If you can save the attached file into the repo, do so. If you can't, guide her through the simplest phone route (e.g. GitHub's website: open `assets/images/` → Add file → Upload files, using the exact target filename), then take over from there.
+- Resize photos to max 2000px wide, save them under the matching name, and write alt text in both languages.
 - The current photos are temporary Wikimedia Commons images. Their attributions are in `data/photo_credits.json` (rendered by the `photo-credits` shortcode). When one is replaced with her own photo, remove its entry; once all are replaced, offer to remove the credits pages and the footer link (`copyright` in `hugo.toml`).
 
 ## Design
